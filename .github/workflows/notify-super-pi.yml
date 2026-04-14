@@ -1,0 +1,36 @@
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║  NeuroForge Nexus → Super Pi — Push Dispatch Trigger                       ║
+# ║  Notifies KOSASIH/super-pi whenever neuroforge-nexus main branch is pushed ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+name: Notify Super Pi on Push
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  dispatch-to-super-pi:
+    name: Dispatch to KOSASIH/super-pi
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Trigger super-pi submodule sync
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.SUPER_PI_DISPATCH_TOKEN }}
+          repository: KOSASIH/super-pi
+          event-type: neuroforge-nexus-updated
+          client-payload: |
+            {
+              "sha": "${{ github.sha }}",
+              "ref": "${{ github.ref }}",
+              "pusher": "${{ github.actor }}",
+              "reason": "Auto-sync: neuroforge-nexus push @ ${{ github.sha }}"
+            }
+
+      - name: Confirm dispatch
+        run: |
+          echo "✅ Dispatched neuroforge-nexus-updated to KOSASIH/super-pi"
+          echo "   SHA: ${{ github.sha }}"
+          echo "   Ref: ${{ github.ref }}"
