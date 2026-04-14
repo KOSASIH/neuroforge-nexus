@@ -208,3 +208,23 @@ MIT License — See [LICENSE](LICENSE) for details.
 ---
 
 **#NexusEternal** 🌌🧠 *NeuroForge Nexus: Where Minds Become Mythic Forges.*
+
+
+---
+
+## 🔗 Ecosystem Integration: Super Pi
+
+NeuroForge Nexus is integrated into [KOSASIH/super-pi](https://github.com/KOSASIH/super-pi) —
+a production-grade Shariah-compliant Layer 2 blockchain with the `$SPI` stablecoin (1:1 USD-backed),
+serving 195 countries, 100 languages, and 100,000 Super Apps.
+
+### Integration Details
+| Attribute | Value |
+|-----------|-------|
+| Role in Super Pi | BCI / Cognitive AI compute module |
+| Submodule location | `super-pi/integrations/neuroforge-nexus` |
+| Sync trigger | Automatic on every push to `main` (dispatches to super-pi) |
+| Governance | NexusLaw v2.1 (`$SPI` only, halal-compliant, no Pi Coin, no riba) |
+
+> Pushes to `main` automatically trigger a submodule sync in `KOSASIH/super-pi` via `repository_dispatch`.
+> SUPER_PI_DISPATCH_TOKEN must be set in repository secrets.
