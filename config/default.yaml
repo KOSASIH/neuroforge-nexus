@@ -1,0 +1,49 @@
+# NeuroForge Nexus — Default Configuration
+
+platform:
+  name: "NeuroForge Nexus"
+  version: "0.1.0"
+  environment: "development"
+  log_level: "INFO"
+
+signal_processor:
+  sample_rate: 1000
+  n_channels: 64
+  notch_freq: 50.0
+  bandpass_low: 0.5
+  bandpass_high: 100.0
+  filter_order: 4
+  buffer_seconds: 10.0
+
+ai:
+  model_size: "base"          # base | large
+  paradigm: "motor_imagery"
+  n_channels: 64
+  n_samples: 256
+  mc_dropout_samples: 30
+  device: "auto"              # auto | cpu | cuda
+
+quantum:
+  n_qubits: 8
+  circuit_depth: 3
+  noise_level: 0.001
+  backend: "statevector_simulator"
+
+network:
+  port: 7777
+  gossip_fanout: 6
+  heartbeat_interval_s: 5.0
+  key_rotation_interval: 1000
+  max_peers: 512
+
+api:
+  host: "0.0.0.0"
+  port: 8000
+  workers: 1
+  reload: true
+  cors_origins: ["*"]
+
+simulation:
+  default_snr_db: 15.0
+  default_n_channels: 64
+  default_sample_rate: 256
