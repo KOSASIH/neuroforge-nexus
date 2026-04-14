@@ -36,5 +36,5 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - GF_SECURITY_ADMIN_PASSWORD=nexus2025
+      - GF_SECURITY_ADMIN_PASSWORD=MY_SECRET_KEY
     restart: unless-stopped
