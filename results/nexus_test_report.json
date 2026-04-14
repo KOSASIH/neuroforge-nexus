@@ -1,0 +1,142 @@
+{
+  "title": "NeuroForge Nexus + Super Pi \u2014 Integration Test Report",
+  "version": "1.0.0",
+  "timestamp": "2026-04-14T10:36:21Z",
+  "summary": {
+    "total": 9,
+    "passed": 8,
+    "failed": 1,
+    "pass_rate": "88.9%",
+    "total_time_s": 86.25
+  },
+  "tests": [
+    {
+      "id": "A1",
+      "name": "Pi accurate to 10K digits",
+      "passed": true,
+      "elapsed_ms": 95.4,
+      "details": {
+        "pi_preview": "3.1415926535897932384626433832",
+        "digits": 10000
+      },
+      "error": null
+    },
+    {
+      "id": "A2",
+      "name": "Performance <60s for 100K digits",
+      "passed": true,
+      "elapsed_ms": 2279.07,
+      "details": {
+        "digits": 100000,
+        "time_s": 2.2790673859999515
+      },
+      "error": null
+    },
+    {
+      "id": "B3",
+      "name": "HTTP 200 to Nexus",
+      "passed": true,
+      "elapsed_ms": 4.12,
+      "details": {
+        "response": {
+          "status": "ok",
+          "code": 200,
+          "body": {
+            "message": "Pi payload received and integrated into BCI matrix",
+            "neural_throughput_gbps": 1.21,
+            "nexus_node": "nexus-mock-primary",
+            "session_id": "8d27040b-c1a7-4db8-9b8f-4bd5798f189d",
+            "status": "ok",
+            "timestamp": 1776162897.8948793
+          }
+        },
+        "payload_digest": "6fba00bd4d732bf5"
+      },
+      "error": null
+    },
+    {
+      "id": "B4",
+      "name": "Mock BCI response",
+      "passed": true,
+      "elapsed_ms": 1.92,
+      "details": {
+        "response": {
+          "bci_status": "ACTIVE",
+          "latency_ms": 0.42,
+          "message": "BCI bridge validated",
+          "neural_load": 0.85,
+          "pi_received": "3.14159265",
+          "status": "ok"
+        }
+      },
+      "error": null
+    },
+    {
+      "id": "C5",
+      "name": "Pi-BCI sync confirmed",
+      "passed": true,
+      "elapsed_ms": 0.11,
+      "details": {
+        "digest": "6fba00bd4d732bf518635d1e",
+        "verified": true
+      },
+      "error": null
+    },
+    {
+      "id": "D7",
+      "name": "IQ boost >300",
+      "passed": true,
+      "elapsed_ms": 95.12,
+      "details": {
+        "user_profile": "elite_cyborg",
+        "digits_computed": 10000,
+        "compute_time_s": 0.0951,
+        "digits_per_second": 105186,
+        "pi_precision": "10000 digits in 0.10s",
+        "iq_amplification": "+594 points",
+        "final_iq": 694.0,
+        "neural_throughput": "1.2 TeraFlops",
+        "nexus_sync": "ACTIVE",
+        "consciousness_resonance": "97.72%",
+        "pi_preview": "3.141592653589793238462643383279502884197169399375..."
+      },
+      "error": null
+    },
+    {
+      "id": "E8",
+      "name": "Holo viz renders",
+      "passed": true,
+      "elapsed_ms": 1409.42,
+      "details": {
+        "output": "output/pi_spiral.png",
+        "size_kb": 1003.6
+      },
+      "error": null
+    },
+    {
+      "id": "F9",
+      "name": "1M digit Pi computation",
+      "passed": false,
+      "elapsed_ms": 82362.89,
+      "details": {},
+      "error": "[<class 'decimal.Overflow'>]"
+    },
+    {
+      "id": "G10",
+      "name": "10-user BCI cluster",
+      "passed": true,
+      "elapsed_ms": 1.13,
+      "details": {
+        "users": 10,
+        "payloads_generated": 10
+      },
+      "error": null
+    }
+  ],
+  "system": {
+    "python": "3.12.12",
+    "platform": "linux",
+    "cpus": 2,
+    "nexus_url": "http://localhost:8080"
+  }
+}
